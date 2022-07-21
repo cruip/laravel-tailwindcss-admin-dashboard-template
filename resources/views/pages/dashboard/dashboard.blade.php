@@ -61,11 +61,17 @@
             <!-- Stacked bar chart (Sales VS Refunds) -->
             <x-dashboard.dashboard-card-09 />
 
-            <!-- Card (Recent Activity) -->
+            <!-- Card (Customers)  -->
             <x-dashboard.dashboard-card-10 />
+
+            <!-- Card (Reasons for Refunds)   -->
+            <x-dashboard.dashboard-card-11 />             
+
+            <!-- Card (Recent Activity) -->
+            <x-dashboard.dashboard-card-12 />
             
             <!-- Card (Income/Expenses) -->
-            <x-dashboard.dashboard-card-11 />
+            <x-dashboard.dashboard-card-13 />
 
         </div>
 

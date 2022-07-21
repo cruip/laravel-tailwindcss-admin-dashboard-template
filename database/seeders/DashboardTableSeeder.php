@@ -224,6 +224,36 @@ class DashboardTableSeeder extends Seeder
             ],
             'dataset_name' => 2
         ],
+        [
+            'type' => 10,
+            'labels' => ['Reasons'],
+            'data' => [131],
+            'dataset_name' => 1
+        ],
+        [
+            'type' => 10,
+            'labels' => null,
+            'data' => [100],
+            'dataset_name' => 2
+        ],
+        [
+            'type' => 10,
+            'labels' => null,
+            'data' => [91],
+            'dataset_name' => 3
+        ],
+        [
+            'type' => 10,
+            'labels' => null,
+            'data' => [65],
+            'dataset_name' => 4
+        ],
+        [
+            'type' => 10,
+            'labels' => null,
+            'data' => [72],
+            'dataset_name' => 5
+        ],                
     ];
 
     /**
