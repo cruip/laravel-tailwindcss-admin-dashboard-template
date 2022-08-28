@@ -2,7 +2,7 @@
 
 ![Mosaic TailwindCSS template preview](https://user-images.githubusercontent.com/2683512/179986293-36b45ba3-97cc-426e-b42e-fca244d4b86c.png)
 
-**Mosaic Lite Laravel** is a responsive admin dashboard template built on top of Tailwind CSS and fully coded in Laravel Jetstram. This template is a great starting point for anyone who wants to create a user interface for SaaS products, administrator dashboards, modern web apps, and more.
+**Mosaic Lite Laravel** is a responsive admin dashboard template built on top of Tailwind CSS and fully coded in Laravel Jetstream. This template is a great starting point for anyone who wants to create a user interface for SaaS products, administrator dashboards, modern web apps, and more.
 Use it for whatever you want, and be sure to reach us out on [Twitter](https://twitter.com/Cruip_com) if you build anything cool/useful with it.
 
 Created and maintained with ❤️ by [Cruip.com](https://cruip.com/).
