@@ -1,0 +1,48 @@
+#! /bin/bash
+#Author : Abdallah Samy
+# https://github.com/abdallhsamy/laravel-dc
+
+COMPOSE="./vendor/bin/sail"
+
+if [ $# -gt 0 ]; then
+    if [ "$1" == "up" ]; then
+        $COMPOSE up -d
+    elif [ "$1" == "reload" ] || [ "$1" == "restart" ] || [ "$1" == "rs" ] || [ "$1" == "rl" ]; then
+        $COMPOSE down && $COMPOSE up -d
+    elif [ "$1" == "artisan" ] || [ "$1" == "art" ] || [ "$1" == "a" ]; then
+        shift 1
+        $COMPOSE php artisan "$@"
+    elif [ "$1" == "bin/console" ]; then
+        shift 1
+        $COMPOSE php bin/console "$@"
+    elif [ "$1" == "app/console" ]; then
+        shift 1
+        $COMPOSE php app/console "$@"
+    elif [ "$1" == "test" ]; then
+        shift 1
+        $COMPOSE phpunit "$@"
+    elif [ "$1" == "t" ]; then
+        shift 1
+        $COMPOSE phpunit "$@"
+    elif [ "$1" == "composer" ]; then
+        shift 1
+        $COMPOSE composer "$@"
+    elif [ "$1" == "yarn" ]; then
+        shift 1
+        $COMPOSE yarn "$@"
+    elif [ "$1" == "npm" ]; then
+        shift 1
+        $COMPOSE npm "$@"
+    elif [ "$1" == "php" ]; then
+        shift 1
+        $COMPOSE php "$@"
+    elif [ "$1" == "node" ]; then
+        shift 1
+        $COMPOSE node "$@"
+    else
+        $COMPOSE "$@"
+    fi
+else
+    $COMPOSE ps
+fi
+
