@@ -9,7 +9,7 @@ Created and maintained with ❤️ by [Cruip.com](https://cruip.com/).
 
 ## Live demo
 
-Check a live demo here 👉️ [https://mosaic.cruip.com/](https://mosaic.cruip.com/)
+Check a live demo here 👉️ [https://mosaic.cruip.com/](https://mosaic.cruip.com/?template=laravel)
 
 ## Mosaic Pro
 
