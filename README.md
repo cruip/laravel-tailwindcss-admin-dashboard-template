@@ -35,6 +35,8 @@ If you need the design files, you can download them from Figma's Community 👉 
 
 ## Usage
 
+This project was built with [Laravel Jetstream](https://jetstream.laravel.com/) and [Livewire + Blade](https://jetstream.laravel.com/2.x/introduction.html#livewire-blade) as Stack.
+
 This project was built with [Vue 3](https://v3.vuejs.org/) and [Vite](https://vitejs.dev/).
 
 ### Setup your .env config file
