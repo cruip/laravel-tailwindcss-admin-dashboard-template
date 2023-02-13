@@ -527,7 +527,7 @@
                 <ul class="mt-3">
                     <!-- Authentication -->
                     <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0" x-data="{ open: false }">
-                        <a class="block text-slate-200 hover:text-white transition duration-150" :class="open && 'hover:text-slate-200'" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                        <a class="block text-slate-200 transition duration-150" :class="open ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
@@ -578,7 +578,7 @@
                     </li>
                     <!-- Onboarding -->
                     <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0" x-data="{ open: false }">
-                        <a class="block text-slate-200 hover:text-white transition duration-150" :class="open && 'hover:text-slate-200'" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                        <a class="block text-slate-200 transition duration-150" :class="open ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
@@ -622,7 +622,7 @@
                     </li>
                     <!-- Components -->
                     <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['component'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['component']) ? 1 : 0 }} }">
-                        <a class="block text-slate-200 hover:text-white transition duration-150" :class="open && 'hover:text-slate-200'" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                        <a class="block text-slate-200 transition duration-150" :class="open ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">

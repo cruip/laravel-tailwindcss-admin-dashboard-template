@@ -60,8 +60,8 @@ const dashboardCard09 = () => {
           scales: {
             y: {
               stacked: true,
-              grid: {
-                drawBorder: false,
+              border: {
+                display: false,
               },
               beginAtZero: true,
               ticks: {
@@ -79,9 +79,11 @@ const dashboardCard09 = () => {
                   month: 'MMM YY',
                 },
               },
+              border: {
+                display: false,
+              },              
               grid: {
                 display: false,
-                drawBorder: false,
               },
               ticks: {
                 autoSkipPadding: 48,
