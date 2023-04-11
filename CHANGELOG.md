@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## [1.0.3] - 2023-04-11
+
+- Update dependencies
+
 ## [1.0.2] - 2023-02-13
 
 - Update dependencies
