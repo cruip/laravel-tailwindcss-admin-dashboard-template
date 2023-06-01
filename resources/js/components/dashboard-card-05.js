@@ -15,6 +15,38 @@ const dashboardCard05 = () => {
   const ctx = document.getElementById('dashboard-card-05');
   if (!ctx) return;
 
+  const darkMode = localStorage.getItem('dark-mode') === 'true';
+
+  const textColor = {
+    light: '#94a3b8',
+    dark: '#64748B'
+  };
+
+  const gridColor = {
+    light: '#f1f5f9',
+    dark: '#334155'
+  };
+
+  const tooltipTitleColor = {
+    light: '#1e293b',
+    dark: '#f1f5f9'
+  };
+
+  const tooltipBodyColor = {
+    light: '#1e293b',
+    dark: '#f1f5f9'
+  };
+
+  const tooltipBgColor = {
+    light: '#ffffff',
+    dark: '#334155'
+  };
+
+  const tooltipBorderColor = {
+    light: '#e2e8f0',
+    dark: '#475569'
+  };    
+
   let range = 35;
   let increment = 0;
 
@@ -54,6 +86,9 @@ const dashboardCard05 = () => {
               pointRadius: 0,
               pointHoverRadius: 3,
               pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
+              pointHoverBackgroundColor: tailwindConfig().theme.colors.indigo[500],
+              pointBorderWidth: 0,
+              pointHoverBorderWidth: 0,
               clip: 20,
             },
           ],
@@ -72,7 +107,11 @@ const dashboardCard05 = () => {
               ticks: {
                 maxTicksLimit: 5,
                 callback: (value) => formatValue(value),
+                color: darkMode ? textColor.dark : textColor.light,
               },
+              grid: {
+                color: darkMode ? gridColor.dark : gridColor.light,
+              },              
             },
             x: {
               type: 'time',
@@ -93,6 +132,7 @@ const dashboardCard05 = () => {
               ticks: {
                 autoSkipPadding: 48,
                 maxRotation: 0,
+                color: darkMode ? textColor.dark : textColor.light,
               },
             },
           },
@@ -107,6 +147,10 @@ const dashboardCard05 = () => {
               callbacks: {
                 label: (context) => formatValue(context.parsed.y),
               },
+              titleColor: darkMode ? tooltipTitleColor.dark : tooltipTitleColor.light,
+              bodyColor: darkMode ? tooltipBodyColor.dark : tooltipBodyColor.light,
+              backgroundColor: darkMode ? tooltipBgColor.dark : tooltipBgColor.light,
+              borderColor: darkMode ? tooltipBorderColor.dark : tooltipBorderColor.light,                 
             },
           },
           interaction: {
@@ -155,9 +199,29 @@ const dashboardCard05 = () => {
       };
 
       reload();
+
+      document.addEventListener('darkMode', (e) => {
+        const { mode } = e.detail;
+        if (mode === 'on') {
+          chart.options.scales.x.ticks.color = textColor.dark;
+          chart.options.scales.y.ticks.color = textColor.dark;
+          chart.options.scales.y.grid.color = gridColor.dark;
+          chart.options.plugins.tooltip.titleColor = tooltipTitleColor.dark;
+          chart.options.plugins.tooltip.bodyColor = tooltipBodyColor.dark;
+          chart.options.plugins.tooltip.backgroundColor = tooltipBgColor.dark;
+          chart.options.plugins.tooltip.borderColor = tooltipBorderColor.dark;
+        } else {
+          chart.options.scales.x.ticks.color = textColor.light;
+          chart.options.scales.y.ticks.color = textColor.light;
+          chart.options.scales.y.grid.color = gridColor.light;
+          chart.options.plugins.tooltip.titleColor = tooltipTitleColor.light;
+          chart.options.plugins.tooltip.bodyColor = tooltipBodyColor.light;
+          chart.options.plugins.tooltip.backgroundColor = tooltipBgColor.light;
+          chart.options.plugins.tooltip.borderColor = tooltipBorderColor.light;
+        }
+        chart.update('none');
+      });        
     });
-
-
 };
 
 export default dashboardCard05;

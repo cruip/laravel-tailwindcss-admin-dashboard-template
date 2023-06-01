@@ -1,14 +1,14 @@
 
 <div class="relative" x-data="{ open: false, selected: 2 }">
     <button
-        class="btn justify-between min-w-44 bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600"
+        class="btn justify-between min-w-44 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-500 hover:text-slate-600 dark:text-slate-300 dark:hover:text-slate-200"
         aria-label="Select date range"
         aria-haspopup="true"
         @click.prevent="open = !open"
         :aria-expanded="open" 
     >
         <span class="flex items-center">
-            <svg class="w-4 h-4 fill-current text-slate-500 shrink-0 mr-2" viewBox="0 0 16 16">
+            <svg class="w-4 h-4 fill-current text-slate-500 dark:text-slate-400 shrink-0 mr-2" viewBox="0 0 16 16">
                 <path d="M15 2h-2V0h-2v2H9V0H7v2H5V0H3v2H1a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V3a1 1 0 00-1-1zm-1 12H2V6h12v8z" />
             </svg>
             <span x-text="$refs.options.children[selected].children[1].innerHTML"></span>
@@ -18,7 +18,7 @@
         </svg>
     </button>
     <div
-        class="z-10 absolute top-full right-0 w-full bg-white border border-slate-200 py-1.5 rounded shadow-lg overflow-hidden mt-1"                
+        class="z-10 absolute top-full right-0 w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 py-1.5 rounded shadow-lg overflow-hidden mt-1"                
         @click.outside="open = false"
         @keydown.escape.window="open = false"
         x-show="open"
@@ -30,10 +30,10 @@
         x-transition:leave-end="opacity-0"
         x-cloak                
     >
-        <div class="font-medium text-sm text-slate-600" x-ref="options">
+        <div class="font-medium text-sm text-slate-600 dark:text-slate-300" x-ref="options">
             <button
                 tabindex="0"
-                class="flex items-center w-full hover:bg-slate-50 py-1 px-3 cursor-pointer"
+                class="flex items-center w-full hover:bg-slate-50 hover:dark:bg-slate-700/20 py-1 px-3 cursor-pointer"
                 :class="selected === 0 && 'text-indigo-500'"
                 @click="selected = 0;open = false"
                 @focus="open = true"
@@ -46,7 +46,7 @@
             </button>
             <button
                 tabindex="0"
-                class="flex items-center w-full hover:bg-slate-50 py-1 px-3 cursor-pointer"
+                class="flex items-center w-full hover:bg-slate-50 hover:dark:bg-slate-700/20 py-1 px-3 cursor-pointer"
                 :class="selected === 1 && 'text-indigo-500'"
                 @click="selected = 1;open = false"
                 @focus="open = true"
@@ -59,7 +59,7 @@
             </button>
             <button
                 tabindex="0"
-                class="flex items-center w-full hover:bg-slate-50 py-1 px-3 cursor-pointer"
+                class="flex items-center w-full hover:bg-slate-50 hover:dark:bg-slate-700/20 py-1 px-3 cursor-pointer"
                 :class="selected === 2 && 'text-indigo-500'"
                 @click="selected = 2;open = false"
                 @focus="open = true"
@@ -72,7 +72,7 @@
             </button>
             <button
                 tabindex="0"
-                class="flex items-center w-full hover:bg-slate-50 py-1 px-3 cursor-pointer"
+                class="flex items-center w-full hover:bg-slate-50 hover:dark:bg-slate-700/20 py-1 px-3 cursor-pointer"
                 :class="selected === 3 && 'text-indigo-500'"
                 @click="selected = 3;open = false"
                 @focus="open = true"
@@ -85,7 +85,7 @@
             </button>
             <button
                 tabindex="0"
-                class="flex items-center w-full hover:bg-slate-50 py-1 px-3 cursor-pointer"
+                class="flex items-center w-full hover:bg-slate-50 hover:dark:bg-slate-700/20 py-1 px-3 cursor-pointer"
                 :class="selected === 4 && 'text-indigo-500'"
                 @click="selected = 4;open = false"
                 @focus="open = true"

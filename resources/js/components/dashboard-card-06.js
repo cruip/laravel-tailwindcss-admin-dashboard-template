@@ -15,6 +15,28 @@ const dashboardCard06 = () => {
   const ctx = document.getElementById('dashboard-card-06');
   if (!ctx) return;
 
+  const darkMode = localStorage.getItem('dark-mode') === 'true';
+
+  const tooltipTitleColor = {
+    light: '#1e293b',
+    dark: '#f1f5f9'
+  };
+
+  const tooltipBodyColor = {
+    light: '#1e293b',
+    dark: '#f1f5f9'
+  };
+
+  const tooltipBgColor = {
+    light: '#ffffff',
+    dark: '#334155'
+  };
+
+  const tooltipBorderColor = {
+    light: '#e2e8f0',
+    dark: '#475569'
+  };
+
   fetch('/json-data-feed?datatype=6')
     .then(a => {
       return a.json();
@@ -38,7 +60,7 @@ const dashboardCard06 = () => {
                 tailwindConfig().theme.colors.blue[500],
                 tailwindConfig().theme.colors.indigo[900],
               ],
-              hoverBorderColor: tailwindConfig().theme.colors.white,
+              borderWidth: 0,
             },
           ],
         },
@@ -50,6 +72,12 @@ const dashboardCard06 = () => {
           plugins: {
             legend: {
               display: false,
+            },
+            tooltip: {
+              titleColor: darkMode ? tooltipTitleColor.dark : tooltipTitleColor.light,
+              bodyColor: darkMode ? tooltipBodyColor.dark : tooltipBodyColor.light,
+              backgroundColor: darkMode ? tooltipBgColor.dark : tooltipBgColor.light,
+              borderColor: darkMode ? tooltipBorderColor.dark : tooltipBorderColor.light,
             },
             htmlLegend: {
               // ID of the container to put the legend in
@@ -82,12 +110,7 @@ const dashboardCard06 = () => {
               li.style.margin = tailwindConfig().theme.margin[1];
               // Button element
               const button = document.createElement('button');
-              button.classList.add('btn-xs');
-              button.style.backgroundColor = tailwindConfig().theme.colors.white;
-              button.style.borderWidth = tailwindConfig().theme.borderWidth[1];
-              button.style.borderColor = tailwindConfig().theme.colors.slate[200];
-              button.style.color = tailwindConfig().theme.colors.slate[500];
-              button.style.boxShadow = tailwindConfig().theme.boxShadow.md;
+              button.classList.add('btn-xs', 'bg-white', 'dark:bg-slate-800', 'text-slate-500', 'dark:text-slate-400', 'border', 'border-slate-200', 'dark:border-slate-700', 'shadow-md');
               button.style.opacity = item.hidden ? '.3' : '';
               button.onclick = () => {
                 c.toggleDataVisibility(item.index, !item.index);
@@ -115,6 +138,22 @@ const dashboardCard06 = () => {
             });
           },
         }],
+      });
+
+      document.addEventListener('darkMode', (e) => {
+        const { mode } = e.detail;
+        if (mode === 'on') {
+          chart.options.plugins.tooltip.titleColor = tooltipTitleColor.dark;
+          chart.options.plugins.tooltip.bodyColor = tooltipBodyColor.dark;
+          chart.options.plugins.tooltip.backgroundColor = tooltipBgColor.dark;
+          chart.options.plugins.tooltip.borderColor = tooltipBorderColor.dark;
+        } else {
+          chart.options.plugins.tooltip.titleColor = tooltipTitleColor.light;
+          chart.options.plugins.tooltip.bodyColor = tooltipBodyColor.light;
+          chart.options.plugins.tooltip.backgroundColor = tooltipBgColor.light;
+          chart.options.plugins.tooltip.borderColor = tooltipBorderColor.light;
+        }
+        chart.update('none');
       });
     });
 };

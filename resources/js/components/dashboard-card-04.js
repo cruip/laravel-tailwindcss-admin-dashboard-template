@@ -14,6 +14,33 @@ const dashboardCard04 = () => {
   const ctx = document.getElementById('dashboard-card-04');
   if (!ctx) return;
 
+  const darkMode = localStorage.getItem('dark-mode') === 'true';
+
+  const textColor = {
+    light: '#94a3b8',
+    dark: '#64748B'
+  };
+
+  const gridColor = {
+    light: '#f1f5f9',
+    dark: '#334155'
+  };
+
+  const tooltipBodyColor = {
+    light: '#1e293b',
+    dark: '#f1f5f9'
+  };
+
+  const tooltipBgColor = {
+    light: '#ffffff',
+    dark: '#334155'
+  };
+
+  const tooltipBorderColor = {
+    light: '#e2e8f0',
+    dark: '#475569'
+  };    
+
   fetch('/json-data-feed?datatype=4')
     .then(a => {
       return a.json();
@@ -71,7 +98,11 @@ const dashboardCard04 = () => {
               ticks: {
                 maxTicksLimit: 5,
                 callback: (value) => formatValue(value),
+                color: darkMode ? textColor.dark : textColor.light,
               },
+              grid: {
+                color: darkMode ? gridColor.dark : gridColor.light,
+              },              
             },
             x: {
               type: 'time',
@@ -88,6 +119,9 @@ const dashboardCard04 = () => {
               grid: {
                 display: false,
               },
+              ticks: {
+                color: darkMode ? textColor.dark : textColor.light,
+              },
             },
           },
           plugins: {
@@ -103,6 +137,9 @@ const dashboardCard04 = () => {
                 title: () => false, // Disable tooltip title
                 label: (context) => formatValue(context.parsed.y),
               },
+              bodyColor: darkMode ? tooltipBodyColor.dark : tooltipBodyColor.light,
+              backgroundColor: darkMode ? tooltipBgColor.dark : tooltipBgColor.light,
+              borderColor: darkMode ? tooltipBorderColor.dark : tooltipBorderColor.light,    
             },
           },
           interaction: {
@@ -153,14 +190,14 @@ const dashboardCard04 = () => {
               labelContainer.style.display = 'flex';
               labelContainer.style.alignItems = 'center';
               const value = document.createElement('span');
-              value.style.color = tailwindConfig().theme.colors.slate[800];
+              value.classList.add('text-slate-800', 'dark:text-slate-100');
               value.style.fontSize = tailwindConfig().theme.fontSize['3xl'][0];
               value.style.lineHeight = tailwindConfig().theme.fontSize['3xl'][1].lineHeight;
               value.style.fontWeight = tailwindConfig().theme.fontWeight.bold;
               value.style.marginRight = tailwindConfig().theme.margin[2];
               value.style.pointerEvents = 'none';
               const label = document.createElement('span');
-              label.style.color = tailwindConfig().theme.colors.slate[500];
+              label.classList.add('text-slate-500', 'dark:text-slate-400');
               label.style.fontSize = tailwindConfig().theme.fontSize.sm[0];
               label.style.lineHeight = tailwindConfig().theme.fontSize.sm[1].lineHeight;
               const theValue = c.data.datasets[item.datasetIndex].data.reduce((a, b) => a + b, 0);
@@ -178,6 +215,26 @@ const dashboardCard04 = () => {
           },
         }],
       });
+      
+      document.addEventListener('darkMode', (e) => {
+        const { mode } = e.detail;
+        if (mode === 'on') {
+          chart.options.scales.x.ticks.color = textColor.dark;
+          chart.options.scales.y.ticks.color = textColor.dark;
+          chart.options.scales.y.grid.color = gridColor.dark;
+          chart.options.plugins.tooltip.bodyColor = tooltipBodyColor.dark;
+          chart.options.plugins.tooltip.backgroundColor = tooltipBgColor.dark;
+          chart.options.plugins.tooltip.borderColor = tooltipBorderColor.dark;
+        } else {
+          chart.options.scales.x.ticks.color = textColor.light;
+          chart.options.scales.y.ticks.color = textColor.light;
+          chart.options.scales.y.grid.color = gridColor.light;
+          chart.options.plugins.tooltip.bodyColor = tooltipBodyColor.light;
+          chart.options.plugins.tooltip.backgroundColor = tooltipBgColor.light;
+          chart.options.plugins.tooltip.borderColor = tooltipBorderColor.light;  
+        }
+        chart.update('none');
+      });      
     });
 };
 
