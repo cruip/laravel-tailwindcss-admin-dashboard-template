@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## [2.1.0] - 2023-06-23
+
+- Account settings page fixes
+
 ## [2.0.0] - 2023-06-01
 
 - Dark version added
