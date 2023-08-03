@@ -20,6 +20,7 @@
         "chart.js": "^4.3.0",
         "chartjs-adapter-moment": "^1.0.1",
         "flatpickr": "^4.6.13",
+        "flowbite": "^1.8.1",
         "moment": "^2.29.4"
     }
 }

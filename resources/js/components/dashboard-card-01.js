@@ -35,7 +35,7 @@ const dashboardCard01 = () => {
   const tooltipBorderColor = {
     light: '#e2e8f0',
     dark: '#475569'
-  };  
+  };
 
   fetch('/json-data-feed?datatype=1')
     .then(a => {
@@ -112,7 +112,7 @@ const dashboardCard01 = () => {
               },
               bodyColor: darkMode ? tooltipBodyColor.dark : tooltipBodyColor.light,
               backgroundColor: darkMode ? tooltipBgColor.dark : tooltipBgColor.light,
-              borderColor: darkMode ? tooltipBorderColor.dark : tooltipBorderColor.light,     
+              borderColor: darkMode ? tooltipBorderColor.dark : tooltipBorderColor.light,
             },
             legend: {
               display: false,
@@ -125,7 +125,7 @@ const dashboardCard01 = () => {
           maintainAspectRatio: false,
         },
       });
-      
+
       document.addEventListener('darkMode', (e) => {
         const { mode } = e.detail;
         if (mode === 'on') {
@@ -140,7 +140,7 @@ const dashboardCard01 = () => {
           chart.options.plugins.tooltip.borderColor = tooltipBorderColor.light;
         }
         chart.update('none');
-      });      
+      });
     });
 };
 
