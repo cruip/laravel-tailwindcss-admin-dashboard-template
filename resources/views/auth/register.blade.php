@@ -5,23 +5,23 @@
         @csrf
         <div class="space-y-4">
             <div>
-                <x-jet-label for="name">{{ __('Full Name') }} <span class="text-rose-500">*</span></x-jet-label>
-                <x-jet-input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-label for="name">{{ __('Full Name') }} <span class="text-rose-500">*</span></x-label>
+                <x-input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div>
-                <x-jet-label for="email">{{ __('Email Address') }} <span class="text-rose-500">*</span></x-jet-label>
-                <x-jet-input id="email" type="email" name="email" :value="old('email')" required />
+                <x-label for="email">{{ __('Email Address') }} <span class="text-rose-500">*</span></x-label>
+                <x-input id="email" type="email" name="email" :value="old('email')" required />
             </div>
 
             <div>
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" type="password" name="password" required autocomplete="new-password" />
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div>
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-input id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
         </div>
         <div class="flex items-center justify-between mt-6">
@@ -31,9 +31,9 @@
                     <span class="text-sm ml-2">Email me about product news.</span>
                 </label>
             </div>
-            <x-jet-button>
+            <x-button>
                 {{ __('Sign Up') }}
-            </x-jet-button>                
+            </x-button>                
         </div>
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-6">
@@ -49,7 +49,7 @@
                 </div>
             @endif        
     </form>
-    <x-jet-validation-errors class="mt-4" />  
+    <x-validation-errors class="mt-4" />  
     <!-- Footer -->
     <div class="pt-5 mt-6 border-t border-slate-200">
         <div class="text-sm">

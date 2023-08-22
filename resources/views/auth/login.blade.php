@@ -10,12 +10,12 @@
         @csrf
         <div class="space-y-4">
             <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" type="email" name="email" :value="old('email')" required autofocus />                
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" type="email" name="email" :value="old('email')" required autofocus />                
             </div>
             <div>
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" type="password" name="password" required autocomplete="current-password" />                
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" type="password" name="password" required autocomplete="current-password" />                
             </div>
         </div>
         <div class="flex items-center justify-between mt-6">
@@ -26,12 +26,12 @@
                     </a>
                 </div>
             @endif            
-            <x-jet-button class="ml-3">
+            <x-button class="ml-3">
                 {{ __('Sign in') }}
-            </x-jet-button>            
+            </x-button>            
         </div>
     </form>
-    <x-jet-validation-errors class="mt-4" />   
+    <x-validation-errors class="mt-4" />   
     <!-- Footer -->
     <div class="pt-5 mt-6 border-t border-slate-200">
         <div class="text-sm">
