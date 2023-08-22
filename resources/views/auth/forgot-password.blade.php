@@ -9,14 +9,14 @@
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
         <div>
-            <x-jet-label for="email">{{ __('Email Address') }} <span class="text-rose-500">*</span></x-jet-label>
-            <x-jet-input id="email" type="email" name="email" :value="old('email')" required autofocus />                
+            <x-label for="email">{{ __('Email Address') }} <span class="text-rose-500">*</span></x-label>
+            <x-input id="email" type="email" name="email" :value="old('email')" required autofocus />                
         </div>
         <div class="flex justify-end mt-6">
-            <x-jet-button>
+            <x-button>
                 {{ __('Send Reset Link') }}
-            </x-jet-button>
+            </x-button>
         </div>
     </form>
-    <x-jet-validation-errors class="mt-4" /> 
+    <x-validation-errors class="mt-4" /> 
 </x-authentication-layout>

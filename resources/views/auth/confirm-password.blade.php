@@ -4,14 +4,14 @@
     <form method="POST" action="{{ route('password.confirm') }}">
         @csrf
         <div>
-            <x-jet-label for="password" value="{{ __('Password') }}" />
-            <x-jet-input id="password" type="password" name="password" required autocomplete="current-password" autofocus />
+            <x-label for="password" value="{{ __('Password') }}" />
+            <x-input id="password" type="password" name="password" required autocomplete="current-password" autofocus />
         </div>
         <div class="flex justify-end mt-6">
-            <x-jet-button>
+            <x-button>
                 {{ __('Confirm') }}
-            </x-jet-button>
+            </x-button>
         </div>
     </form>
-    <x-jet-validation-errors class="mt-4" />
+    <x-validation-errors class="mt-4" />
 </x-authentication-layout>
