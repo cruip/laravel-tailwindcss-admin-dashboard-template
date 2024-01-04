@@ -1,32 +1,31 @@
 <?php
 
-    namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
-    use App\Models\DataFeed;
-    use Illuminate\Http\Request;
+use Illuminate\Http\Request;
+use App\Models\DataFeed;
 
-    class DataFeedController extends ApiController
+class DataFeedController extends Controller
+{
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function getDataFeed(Request $request)
     {
+        $df = new DataFeed();
 
-        /**
-         * @param Request $request
-         * @return mixed
-         */
-        public function getDataFeed(Request $request)
-        {
-            $df = new DataFeed();
-
-            return (object)[
-                'labels' => $df->getDataFeed(
-                    $request->datatype,
-                    'label',
-                    $request->limit
-                ),
-                'data' => $df->getDataFeed(
-                    $request->datatype,
-                    'data',
-                    $request->limit
-                ),
-            ];
-        }
+        return (object)[
+            'labels' => $df->getDataFeed(
+                $request->datatype,
+                'label',
+                $request->limit
+            ),
+            'data' => $df->getDataFeed(
+                $request->datatype,
+                'data',
+                $request->limit
+            ),
+        ];
     }
+}

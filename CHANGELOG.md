@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## [3.0.0] - 2024-01-05
+
+- Upgrade to Laravel 10, Jetstream 4 and Livewire 3
+
 ## [2.1.0] - 2023-06-23
 
 - Account settings page fixes

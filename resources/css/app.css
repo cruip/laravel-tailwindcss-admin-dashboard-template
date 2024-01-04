@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=fallback');
-
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 
@@ -8,12 +6,3 @@
 @import 'additional-styles/flatpickr.css';
 
 @import 'tailwindcss/utilities';
-
-/* See Alpine.js: https://github.com/alpinejs/alpine#x-cloak */
-[x-cloak=""] {
-    display: none;
-}
-
-@media screen and (max-width: theme('screens.lg')) {
-    [x-cloak="lg"] { display: none; }
-}

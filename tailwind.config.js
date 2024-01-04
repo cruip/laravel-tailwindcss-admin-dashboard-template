@@ -1,6 +1,9 @@
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
 const plugin = require('tailwindcss/plugin');
 
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
@@ -58,14 +61,15 @@ module.exports = {
             },
         },
     },
+
     plugins: [
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/typography'),
+        forms,
+        typography,
         // add custom variant for expanding sidebar
         plugin(({ addVariant, e }) => {
             addVariant('sidebar-expanded', ({ modifySelectors, separator }) => {
                 modifySelectors(({ className }) => `.sidebar-expanded .${e(`sidebar-expanded${separator}${className}`)}`);
             });
-        }),
+        }),        
     ],
 };

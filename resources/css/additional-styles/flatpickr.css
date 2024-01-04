@@ -175,6 +175,7 @@
 .flatpickr-months .flatpickr-next-month svg {
     width: 7px;
     height: 11px;
+    fill: currentColor;
 }
 
 .flatpickr-months .flatpickr-prev-month:hover svg,

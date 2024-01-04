@@ -8,13 +8,16 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        @livewireStyles
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Styles -->
+        @livewireStyles        
+
         <script>
             if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
                 document.querySelector('html').classList.remove('dark');
@@ -23,7 +26,7 @@
                 document.querySelector('html').classList.add('dark');
                 document.querySelector('html').style.colorScheme = 'dark';
             }
-        </script>          
+        </script>
     </head>
     <body
         class="font-inter antialiased bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400"
@@ -41,7 +44,7 @@
         </script>
 
         <!-- Page wrapper -->
-        <div class="flex h-screen overflow-hidden">
+        <div class="flex h-[100dvh] overflow-hidden">
 
             <x-app.sidebar />
 
@@ -50,7 +53,7 @@
 
                 <x-app.header />
 
-                <main>
+                <main class="grow">
                     {{ $slot }}
                 </main>
 

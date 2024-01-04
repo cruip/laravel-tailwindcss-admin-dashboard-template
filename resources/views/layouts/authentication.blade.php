@@ -8,10 +8,16 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Styles -->
+        @livewireStyles        
+
         <script>
             if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
                 document.querySelector('html').classList.remove('dark');
@@ -20,18 +26,18 @@
                 document.querySelector('html').classList.add('dark');
                 document.querySelector('html').style.colorScheme = 'dark';
             }
-        </script>          
+        </script>
     </head>
     <body class="font-inter antialiased bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400">
 
-        <main class="bg-white">
+        <main class="bg-white dark:bg-slate-900">
 
             <div class="relative flex">
 
                 <!-- Content -->
                 <div class="w-full md:w-1/2">
 
-                    <div class="min-h-screen h-full flex flex-col after:flex-1">
+                    <div class="min-h-[100dvh] h-full flex flex-col after:flex-1">
 
                         <!-- Header -->
                         <div class="flex-1">
@@ -58,7 +64,7 @@
                             </div>
                         </div>
 
-                        <div class="w-full max-w-sm mx-auto px-4 py-8">
+                        <div class="max-w-sm mx-auto w-full px-4 py-8">
                             {{ $slot }}
                         </div>
 
@@ -74,6 +80,8 @@
 
             </div>
 
-        </main>        
+        </main> 
+
+        @livewireScripts
     </body>
 </html>

@@ -13,10 +13,10 @@ class PasswordResetTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_reset_password_link_screen_can_be_rendered()
+    public function test_reset_password_link_screen_can_be_rendered(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
-            return $this->markTestSkipped('Password updates are not enabled.');
+            $this->markTestSkipped('Password updates are not enabled.');
         }
 
         $response = $this->get('/forgot-password');
@@ -24,10 +24,10 @@ class PasswordResetTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_reset_password_link_can_be_requested()
+    public function test_reset_password_link_can_be_requested(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
-            return $this->markTestSkipped('Password updates are not enabled.');
+            $this->markTestSkipped('Password updates are not enabled.');
         }
 
         Notification::fake();
@@ -41,10 +41,10 @@ class PasswordResetTest extends TestCase
         Notification::assertSentTo($user, ResetPassword::class);
     }
 
-    public function test_reset_password_screen_can_be_rendered()
+    public function test_reset_password_screen_can_be_rendered(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
-            return $this->markTestSkipped('Password updates are not enabled.');
+            $this->markTestSkipped('Password updates are not enabled.');
         }
 
         Notification::fake();
@@ -55,7 +55,7 @@ class PasswordResetTest extends TestCase
             'email' => $user->email,
         ]);
 
-        Notification::assertSentTo($user, ResetPassword::class, function ($notification) {
+        Notification::assertSentTo($user, ResetPassword::class, function (object $notification) {
             $response = $this->get('/reset-password/'.$notification->token);
 
             $response->assertStatus(200);
@@ -64,10 +64,10 @@ class PasswordResetTest extends TestCase
         });
     }
 
-    public function test_password_can_be_reset_with_valid_token()
+    public function test_password_can_be_reset_with_valid_token(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
-            return $this->markTestSkipped('Password updates are not enabled.');
+            $this->markTestSkipped('Password updates are not enabled.');
         }
 
         Notification::fake();
@@ -78,7 +78,7 @@ class PasswordResetTest extends TestCase
             'email' => $user->email,
         ]);
 
-        Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
+        Notification::assertSentTo($user, ResetPassword::class, function (object $notification) use ($user) {
             $response = $this->post('/reset-password', [
                 'token' => $notification->token,
                 'email' => $user->email,
