@@ -17,22 +17,22 @@ const dashboardCard11 = () => {
   const darkMode = localStorage.getItem('dark-mode') === 'true';
 
   const tooltipBodyColor = {
-    light: '#1e293b',
-    dark: '#f1f5f9'
+    light: '#6B7280',
+    dark: '#9CA3AF'
   };
 
   const tooltipBgColor = {
     light: '#ffffff',
-    dark: '#334155'
+    dark: '#374151'
   };
 
   const tooltipBorderColor = {
-    light: '#e2e8f0',
-    dark: '#475569'
-  };    
+    light: '#E5E7EB',
+    dark: '#4B5563'
+  };
 
   fetch('/json-data-feed?datatype=10')
-    .then(a => {
+  .then(a => {
       return a.json();
     })
     .then(result => {
@@ -55,32 +55,32 @@ const dashboardCard11 = () => {
             {
               label: 'Having difficulties using the product',
               data: dataset1,
-              backgroundColor: tailwindConfig().theme.colors.indigo[500],
-              hoverBackgroundColor: tailwindConfig().theme.colors.indigo[600],
+              backgroundColor: tailwindConfig().theme.colors.violet[500],
+              hoverBackgroundColor: tailwindConfig().theme.colors.violet[600],
               barPercentage: 1,
               categoryPercentage: 1,
             },
             {
               label: 'Missing features I need',
               data: dataset2,
-              backgroundColor: tailwindConfig().theme.colors.indigo[800],
-              hoverBackgroundColor: tailwindConfig().theme.colors.indigo[900],
+              backgroundColor: tailwindConfig().theme.colors.violet[700],
+              hoverBackgroundColor: tailwindConfig().theme.colors.violet[800],
               barPercentage: 1,
               categoryPercentage: 1,
             },
             {
               label: 'Not satisfied about the quality of the product',
               data: dataset3,
-              backgroundColor: tailwindConfig().theme.colors['sky'][400],
-              hoverBackgroundColor: tailwindConfig().theme.colors['sky'][500],
+              backgroundColor: tailwindConfig().theme.colors['sky'][500],
+              hoverBackgroundColor: tailwindConfig().theme.colors['sky'][600],
               barPercentage: 1,
               categoryPercentage: 1,
             },
             {
               label: 'The product doesn’t look as advertised',
               data: dataset4,
-              backgroundColor: tailwindConfig().theme.colors.green[400],
-              hoverBackgroundColor: tailwindConfig().theme.colors.green[500],
+              backgroundColor: tailwindConfig().theme.colors.green[500],
+              hoverBackgroundColor: tailwindConfig().theme.colors.green[600],
               barPercentage: 1,
               categoryPercentage: 1,
             },

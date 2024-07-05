@@ -4,7 +4,7 @@ import {
 } from 'chart.js';
 
 // Import utilities
-import { tailwindConfig, formatValue } from '../utils';
+import { tailwindConfig, formatValue, hexToRGB } from '../utils';
 
 Chart.register(BarController, BarElement, LinearScale, TimeScale, Tooltip, Legend);
 
@@ -17,28 +17,28 @@ const dashboardCard04 = () => {
   const darkMode = localStorage.getItem('dark-mode') === 'true';
 
   const textColor = {
-    light: '#94a3b8',
-    dark: '#64748B'
+    light: '#9CA3AF',
+    dark: '#6B7280'
   };
 
   const gridColor = {
-    light: '#f1f5f9',
-    dark: '#334155'
+    light: '#F3F4F6',
+    dark: `rgba(${hexToRGB('#374151')}, 0.6)`
   };
 
   const tooltipBodyColor = {
-    light: '#1e293b',
-    dark: '#f1f5f9'
+    light: '#6B7280',
+    dark: '#9CA3AF'
   };
 
   const tooltipBgColor = {
     light: '#ffffff',
-    dark: '#334155'
+    dark: '#374151'
   };
 
   const tooltipBorderColor = {
-    light: '#e2e8f0',
-    dark: '#475569'
+    light: '#E5E7EB',
+    dark: '#4B5563'
   };    
 
   fetch('/json-data-feed?datatype=4')
@@ -62,10 +62,11 @@ const dashboardCard04 = () => {
               // data: [
               //     800, 1600, 900, 1300, 1950, 1700,
               // ],
-              backgroundColor: tailwindConfig().theme.colors.blue[400],
-              hoverBackgroundColor: tailwindConfig().theme.colors.blue[500],
-              barPercentage: 0.66,
-              categoryPercentage: 0.66,
+              backgroundColor: tailwindConfig().theme.colors.sky[500],
+              hoverBackgroundColor: tailwindConfig().theme.colors.sky[600],
+              barPercentage: 0.7,
+              categoryPercentage: 0.7,
+              borderRadius: 4,
             },
             // Blue bars
             {
@@ -74,10 +75,11 @@ const dashboardCard04 = () => {
               // data: [
               //     4900, 2600, 5350, 4800, 5200, 4800,
               // ],
-              backgroundColor: tailwindConfig().theme.colors.indigo[500],
-              hoverBackgroundColor: tailwindConfig().theme.colors.indigo[600],
-              barPercentage: 0.66,
-              categoryPercentage: 0.66,
+              backgroundColor: tailwindConfig().theme.colors.violet[500],
+              hoverBackgroundColor: tailwindConfig().theme.colors.violet[600],
+              barPercentage: 0.7,
+              categoryPercentage: 0.7,
+              borderRadius: 4,
             },
           ],
         },
@@ -165,7 +167,6 @@ const dashboardCard04 = () => {
             const items = c.options.plugins.legend.labels.generateLabels(c);
             items.forEach((item) => {
               const li = document.createElement('li');
-              li.style.marginRight = tailwindConfig().theme.margin[4];
               // Button element
               const button = document.createElement('button');
               button.style.display = 'inline-flex';
@@ -190,14 +191,14 @@ const dashboardCard04 = () => {
               labelContainer.style.display = 'flex';
               labelContainer.style.alignItems = 'center';
               const value = document.createElement('span');
-              value.classList.add('text-slate-800', 'dark:text-slate-100');
+              value.classList.add('text-gray-800', 'dark:text-gray-100');
               value.style.fontSize = tailwindConfig().theme.fontSize['3xl'][0];
               value.style.lineHeight = tailwindConfig().theme.fontSize['3xl'][1].lineHeight;
               value.style.fontWeight = tailwindConfig().theme.fontWeight.bold;
               value.style.marginRight = tailwindConfig().theme.margin[2];
               value.style.pointerEvents = 'none';
               const label = document.createElement('span');
-              label.classList.add('text-slate-500', 'dark:text-slate-400');
+              label.classList.add('text-gray-500', 'dark:text-gray-400');
               label.style.fontSize = tailwindConfig().theme.fontSize.sm[0];
               label.style.lineHeight = tailwindConfig().theme.fontSize.sm[1].lineHeight;
               const theValue = c.data.datasets[item.datasetIndex].data.reduce((a, b) => a + b, 0);

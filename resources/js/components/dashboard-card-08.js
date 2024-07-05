@@ -4,7 +4,7 @@ import {
 } from 'chart.js';
 
 // Import utilities
-import { tailwindConfig, formatValue } from '../utils';
+import { tailwindConfig, formatValue, hexToRGB } from '../utils';
 
 Chart.register(LineController, LineElement, Filler, PointElement, LinearScale, TimeScale, Tooltip);
 
@@ -17,28 +17,28 @@ const dashboardCard08 = () => {
   const darkMode = localStorage.getItem('dark-mode') === 'true';
 
   const textColor = {
-    light: '#94a3b8',
-    dark: '#64748B'
+    light: '#9CA3AF',
+    dark: '#6B7280'
   };
 
   const gridColor = {
-    light: '#f1f5f9',
-    dark: '#334155'
+    light: '#F3F4F6',
+    dark: `rgba(${hexToRGB('#374151')}, 0.6)`
   };
 
   const tooltipBodyColor = {
-    light: '#1e293b',
-    dark: '#f1f5f9'
+    light: '#6B7280',
+    dark: '#9CA3AF'
   };
 
   const tooltipBgColor = {
     light: '#ffffff',
-    dark: '#334155'
+    dark: '#374151'
   };
 
   const tooltipBorderColor = {
-    light: '#e2e8f0',
-    dark: '#475569'
+    light: '#E5E7EB',
+    dark: '#4B5563'
   };    
 
   fetch('/json-data-feed?datatype=8')
@@ -56,64 +56,64 @@ const dashboardCard08 = () => {
         data: {
           labels: result.labels,
           // labels: [
-          //     '12-01-2020', '01-01-2021', '02-01-2021',
-          //     '03-01-2021', '04-01-2021', '05-01-2021',
-          //     '06-01-2021', '07-01-2021', '08-01-2021',
-          //     '09-01-2021', '10-01-2021', '11-01-2021',
-          //     '12-01-2021', '01-01-2022', '02-01-2022',
-          //     '03-01-2022', '04-01-2022', '05-01-2022',
-          //     '06-01-2022', '07-01-2022', '08-01-2022',
-          //     '09-01-2022', '10-01-2022', '11-01-2022',
-          //     '12-01-2022', '01-01-2023',
+          //     '12-01-2022', '01-01-2023', '02-01-2023',
+          //     '03-01-2023', '04-01-2023', '05-01-2023',
+          //     '06-01-2023', '07-01-2023', '08-01-2023',
+          //     '09-01-2023', '10-01-2023', '11-01-2023',
+          //     '12-01-2023', '01-01-2024', '02-01-2024',
+          //     '03-01-2024', '04-01-2024', '05-01-2024',
+          //     '06-01-2024', '07-01-2024', '08-01-2024',
+          //     '09-01-2024', '10-01-2024', '11-01-2024',
+          //     '12-01-2024', '01-01-2025',
           // ],
           datasets: [
             // Indigo line
             {
               label: 'Current',
               data: dataset1,
-              borderColor: tailwindConfig().theme.colors.indigo[500],
+              borderColor: tailwindConfig().theme.colors.violet[500],
               fill: false,
               borderWidth: 2,
-              tension: 0,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
-              pointHoverBackgroundColor: tailwindConfig().theme.colors.indigo[500],
+              pointBackgroundColor: tailwindConfig().theme.colors.violet[500],
+              pointHoverBackgroundColor: tailwindConfig().theme.colors.violet[500],
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,
               clip: 20,
+              tension: 0.2
             },
             // Blue line
             {
               label: 'Previous',
               data: dataset2,
-              borderColor: tailwindConfig().theme.colors.blue[400],
+              borderColor: tailwindConfig().theme.colors.sky[500],
               fill: false,
               borderWidth: 2,
-              tension: 0,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: tailwindConfig().theme.colors.blue[400],
-              pointHoverBackgroundColor: tailwindConfig().theme.colors.blue[400],
+              pointBackgroundColor: tailwindConfig().theme.colors.sky[500],
+              pointHoverBackgroundColor: tailwindConfig().theme.colors.sky[500],
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,              
               clip: 20,
+              tension: 0.2
             },
-            // emerald line
+            // green line
             {
               label: 'Average',
               data: dataset3,
-              borderColor: tailwindConfig().theme.colors.emerald[500],
+              borderColor: tailwindConfig().theme.colors.green[500],
               fill: false,
               borderWidth: 2,
-              tension: 0,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: tailwindConfig().theme.colors.emerald[500],
-              pointHoverBackgroundColor: tailwindConfig().theme.colors.emerald[500],
+              pointBackgroundColor: tailwindConfig().theme.colors.green[500],
+              pointHoverBackgroundColor: tailwindConfig().theme.colors.green[500],
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,              
               clip: 20,
+              tension: 0.2
             },
           ],
         },
@@ -196,7 +196,6 @@ const dashboardCard08 = () => {
             const items = c.options.plugins.legend.labels.generateLabels(c);
             items.slice(0, 2).forEach((item) => {
               const li = document.createElement('li');
-              li.style.marginLeft = tailwindConfig().theme.margin[3];
               // Button element
               const button = document.createElement('button');
               button.style.display = 'inline-flex';
@@ -218,7 +217,7 @@ const dashboardCard08 = () => {
               box.style.pointerEvents = 'none';
               // Label
               const label = document.createElement('span');
-              label.classList.add('text-slate-500', 'dark:text-slate-400');
+              label.classList.add('text-gray-500', 'dark:text-gray-400');
               label.style.fontSize = tailwindConfig().theme.fontSize.sm[0];
               label.style.lineHeight = tailwindConfig().theme.fontSize.sm[1].lineHeight;
               const labelText = document.createTextNode(item.text);

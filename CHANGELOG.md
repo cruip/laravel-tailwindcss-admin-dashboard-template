@@ -1,6 +1,10 @@
 # CHANGELOG.md
 
-## [3.0.0] - 2024-01-05
+## [3.0.0] - 2024-07-05
+
+- Mosaic Redesign
+
+## [2.2.0] - 2024-01-05
 
 - Upgrade to Laravel 10, Jetstream 4 and Livewire 3
 

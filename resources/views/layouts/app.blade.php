@@ -29,7 +29,7 @@
         </script>
     </head>
     <body
-        class="font-inter antialiased bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400"
+        class="font-inter antialiased bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400"
         :class="{ 'sidebar-expanded': sidebarExpanded }"
         x-data="{ sidebarOpen: false, sidebarExpanded: localStorage.getItem('sidebar-expanded') == 'true' }"
         x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"    
@@ -46,12 +46,12 @@
         <!-- Page wrapper -->
         <div class="flex h-[100dvh] overflow-hidden">
 
-            <x-app.sidebar />
+            <x-app.sidebar :variant="$attributes['sidebarVariant']" />
 
             <!-- Content area -->
             <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden @if($attributes['background']){{ $attributes['background'] }}@endif" x-ref="contentarea">
 
-                <x-app.header />
+                <x-app.header :variant="$attributes['headerVariant']" />
 
                 <main class="grow">
                     {{ $slot }}
@@ -61,6 +61,6 @@
 
         </div>
 
-        @livewireScripts
+        @livewireScriptConfig
     </body>
 </html>

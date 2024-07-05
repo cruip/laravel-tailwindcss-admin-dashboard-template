@@ -3,6 +3,7 @@ import {
   Chart, LineController, LineElement, Filler, PointElement, LinearScale, TimeScale, Tooltip,
 } from 'chart.js';
 import 'chartjs-adapter-moment';
+import { chartAreaGradient } from '../app';
 
 // Import utilities
 import { tailwindConfig, formatValue, hexToRGB } from '../utils';
@@ -18,33 +19,33 @@ const dashboardCard05 = () => {
   const darkMode = localStorage.getItem('dark-mode') === 'true';
 
   const textColor = {
-    light: '#94a3b8',
-    dark: '#64748B'
+    light: '#9CA3AF',
+    dark: '#6B7280'
   };
 
   const gridColor = {
-    light: '#f1f5f9',
-    dark: '#334155'
+    light: '#F3F4F6',
+    dark: `rgba(${hexToRGB('#374151')}, 0.6)`
   };
 
   const tooltipTitleColor = {
-    light: '#1e293b',
-    dark: '#f1f5f9'
+    light: '#1F2937',
+    dark: '#F3F4F6'
   };
 
   const tooltipBodyColor = {
-    light: '#1e293b',
-    dark: '#f1f5f9'
+    light: '#6B7280',
+    dark: '#9CA3AF'
   };
 
   const tooltipBgColor = {
     light: '#ffffff',
-    dark: '#334155'
+    dark: '#374151'
   };
 
   const tooltipBorderColor = {
-    light: '#e2e8f0',
-    dark: '#475569'
+    light: '#E5E7EB',
+    dark: '#4B5563'
   };    
 
   let range = 35;
@@ -79,17 +80,24 @@ const dashboardCard05 = () => {
             {
               data: slicedData,
               fill: true,
-              backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.blue[500])}, 0.08)`,
-              borderColor: tailwindConfig().theme.colors.indigo[500],
+              backgroundColor: function(context) {
+                const chart = context.chart;
+                const {ctx, chartArea} = chart;
+                return chartAreaGradient(ctx, chartArea, [
+                  { stop: 0, color: `rgba(${hexToRGB(tailwindConfig().theme.colors.violet[500])}, 0)` },
+                  { stop: 1, color: `rgba(${hexToRGB(tailwindConfig().theme.colors.violet[500])}, 0.2)` }
+                ]);
+              },
+              borderColor: tailwindConfig().theme.colors.violet[500],
               borderWidth: 2,
-              tension: 0,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
-              pointHoverBackgroundColor: tailwindConfig().theme.colors.indigo[500],
+              pointBackgroundColor: tailwindConfig().theme.colors.violet[500],
+              pointHoverBackgroundColor: tailwindConfig().theme.colors.violet[500],
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,
               clip: 20,
+              tension: 0.2
             },
           ],
         },
@@ -142,7 +150,7 @@ const dashboardCard05 = () => {
             },
             tooltip: {
               titleFont: {
-                weight: '600',
+                weight: 600,
               },
               callbacks: {
                 label: (context) => formatValue(context.parsed.y),
@@ -179,10 +187,12 @@ const dashboardCard05 = () => {
         chartValue.innerHTML = value;
         if (!chartDeviation) return;
         if (diff < 0) {
-          chartDeviation.style.backgroundColor = tailwindConfig().theme.colors.amber[500];
+          chartDeviation.style.backgroundColor = `rgba(${hexToRGB(tailwindConfig().theme.colors.red[500])}, 0.2)`;
+          chartDeviation.style.color = tailwindConfig().theme.colors.red[700];
         } else {
-          chartDeviation.style.backgroundColor = tailwindConfig().theme.colors.emerald[500];
-        }
+          chartDeviation.style.backgroundColor = `rgba(${hexToRGB(tailwindConfig().theme.colors.green[500])}, 0.2)`;
+          chartDeviation.style.color = tailwindConfig().theme.colors.green[700];
+        }        
         chartDeviation.innerHTML = `${diff > 0 ? '+' : ''}${diff.toFixed(2)}%`;
       };
 

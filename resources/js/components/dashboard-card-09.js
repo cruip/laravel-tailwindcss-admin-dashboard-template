@@ -4,7 +4,7 @@ import {
 } from 'chart.js';
 
 // Import utilities
-import { tailwindConfig, formatValue } from '../utils';
+import { tailwindConfig, formatValue, hexToRGB } from '../utils';
 
 Chart.register(BarController, BarElement, LinearScale, TimeScale, Tooltip, Legend);
 
@@ -17,28 +17,28 @@ const dashboardCard09 = () => {
   const darkMode = localStorage.getItem('dark-mode') === 'true';
 
   const textColor = {
-    light: '#94a3b8',
-    dark: '#64748B'
+    light: '#9CA3AF',
+    dark: '#6B7280'
   };
 
   const gridColor = {
-    light: '#f1f5f9',
-    dark: '#334155'
+    light: '#F3F4F6',
+    dark: `rgba(${hexToRGB('#374151')}, 0.6)`
   };
 
   const tooltipBodyColor = {
-    light: '#1e293b',
-    dark: '#f1f5f9'
+    light: '#6B7280',
+    dark: '#9CA3AF'
   };
 
   const tooltipBgColor = {
     light: '#ffffff',
-    dark: '#334155'
+    dark: '#374151'
   };
 
   const tooltipBorderColor = {
-    light: '#e2e8f0',
-    dark: '#475569'
+    light: '#E5E7EB',
+    dark: '#4B5563'
   };  
 
   fetch('/json-data-feed?datatype=9')
@@ -59,19 +59,21 @@ const dashboardCard09 = () => {
             {
               label: 'Stack 1',
               data: dataset1,
-              backgroundColor: tailwindConfig().theme.colors.indigo[500],
-              hoverBackgroundColor: tailwindConfig().theme.colors.indigo[600],
-              barPercentage: 0.66,
-              categoryPercentage: 0.66,
+              backgroundColor: tailwindConfig().theme.colors.violet[500],
+              hoverBackgroundColor: tailwindConfig().theme.colors.violet[600],
+              barPercentage: 0.7,
+              categoryPercentage: 0.7,
+              borderRadius: 4,
             },
             // Blue bars
             {
               label: 'Stack 2',
               data: dataset2,
-              backgroundColor: tailwindConfig().theme.colors.indigo[200],
-              hoverBackgroundColor: tailwindConfig().theme.colors.indigo[300],
-              barPercentage: 0.66,
-              categoryPercentage: 0.66,
+              backgroundColor: tailwindConfig().theme.colors.violet[200],
+              hoverBackgroundColor: tailwindConfig().theme.colors.violet[300],
+              barPercentage: 0.7,
+              categoryPercentage: 0.7,
+              borderRadius: 4,
             },
           ],
         },

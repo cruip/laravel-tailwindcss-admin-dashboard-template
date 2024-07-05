@@ -3,6 +3,7 @@ import {
   Chart, LineController, LineElement, Filler, PointElement, LinearScale, TimeScale, Tooltip,
 } from 'chart.js';
 import 'chartjs-adapter-moment';
+import { chartAreaGradient } from '../app';
 
 // Import utilities
 import { tailwindConfig, formatValue, hexToRGB } from '../utils';
@@ -17,24 +18,19 @@ const dashboardCard01 = () => {
 
   const darkMode = localStorage.getItem('dark-mode') === 'true';
 
-  const chartAreaBg = {
-    light: '#f8fafc',
-    dark: `rgba(${hexToRGB('#0F172A')}, 0.24)`
-  };
-
   const tooltipBodyColor = {
-    light: '#1e293b',
-    dark: '#f1f5f9'
+    light: '#6B7280',
+    dark: '#9CA3AF'
   };
 
   const tooltipBgColor = {
     light: '#ffffff',
-    dark: '#334155'
+    dark: '#374151'
   };
 
   const tooltipBorderColor = {
-    light: '#e2e8f0',
-    dark: '#475569'
+    light: '#E5E7EB',
+    dark: '#4B5563'
   };  
 
   fetch('/json-data-feed?datatype=1')
@@ -55,38 +51,42 @@ const dashboardCard01 = () => {
             {
               data: dataset1,
               fill: true,
-              backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.blue[500])}, 0.08)`,
-              borderColor: tailwindConfig().theme.colors.indigo[500],
+              backgroundColor: function(context) {
+                const chart = context.chart;
+                const {ctx, chartArea} = chart;
+                return chartAreaGradient(ctx, chartArea, [
+                  { stop: 0, color: `rgba(${hexToRGB(tailwindConfig().theme.colors.violet[500])}, 0)` },
+                  { stop: 1, color: `rgba(${hexToRGB(tailwindConfig().theme.colors.violet[500])}, 0.2)` }
+                ]);
+              },
+              borderColor: tailwindConfig().theme.colors.violet[500],
               borderWidth: 2,
-              tension: 0,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
-              pointHoverBackgroundColor: tailwindConfig().theme.colors.indigo[500],
+              pointBackgroundColor: tailwindConfig().theme.colors.violet[500],
+              pointHoverBackgroundColor: tailwindConfig().theme.colors.violet[500],
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,
               clip: 20,
+              tension: 0.2
             },
             // Gray line
             {
               data: dataset2,
-              borderColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.slate[500])}, 0.25)`,
+              borderColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.gray[500])}, 0.25)`,
               borderWidth: 2,
-              tension: 0,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.slate[500])}, 0.25)`,
-              pointHoverBackgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.slate[500])}, 0.25)`,
+              pointBackgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.gray[500])}, 0.25)`,
+              pointHoverBackgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.gray[500])}, 0.25)`,
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,
               clip: 20,
+              tension: 0.2
             },
           ],
         },
         options: {
-          chartArea: {
-            backgroundColor: darkMode ? chartAreaBg.dark : chartAreaBg.light,
-          },
           layout: {
             padding: 20,
           },
@@ -129,12 +129,10 @@ const dashboardCard01 = () => {
       document.addEventListener('darkMode', (e) => {
         const { mode } = e.detail;
         if (mode === 'on') {
-          chart.options.chartArea.backgroundColor = chartAreaBg.dark;
           chart.options.plugins.tooltip.bodyColor = tooltipBodyColor.dark;
           chart.options.plugins.tooltip.backgroundColor = tooltipBgColor.dark;
           chart.options.plugins.tooltip.borderColor = tooltipBorderColor.dark;
         } else {
-          chart.options.chartArea.backgroundColor = chartAreaBg.light;
           chart.options.plugins.tooltip.bodyColor = tooltipBodyColor.light;
           chart.options.plugins.tooltip.backgroundColor = tooltipBgColor.light;
           chart.options.plugins.tooltip.borderColor = tooltipBorderColor.light;

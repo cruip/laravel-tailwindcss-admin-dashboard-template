@@ -18,24 +18,24 @@ const dashboardCard06 = () => {
   const darkMode = localStorage.getItem('dark-mode') === 'true';
 
   const tooltipTitleColor = {
-    light: '#1e293b',
-    dark: '#f1f5f9'
+    light: '#1F2937',
+    dark: '#F3F4F6'
   };
 
   const tooltipBodyColor = {
-    light: '#1e293b',
-    dark: '#f1f5f9'
+    light: '#6B7280',
+    dark: '#9CA3AF'
   };
 
   const tooltipBgColor = {
     light: '#ffffff',
-    dark: '#334155'
+    dark: '#374151'
   };
 
   const tooltipBorderColor = {
-    light: '#e2e8f0',
-    dark: '#475569'
-  };
+    light: '#E5E7EB',
+    dark: '#4B5563'
+  };   
 
   fetch('/json-data-feed?datatype=6')
     .then(a => {
@@ -51,14 +51,14 @@ const dashboardCard06 = () => {
               label: 'Top Countries',
               data: result.data,
               backgroundColor: [
-                tailwindConfig().theme.colors.indigo[500],
-                tailwindConfig().theme.colors.blue[400],
-                tailwindConfig().theme.colors.indigo[800],
+                tailwindConfig().theme.colors.violet[500],
+                tailwindConfig().theme.colors.sky[500],
+                tailwindConfig().theme.colors.violet[800],
               ],
               hoverBackgroundColor: [
-                tailwindConfig().theme.colors.indigo[600],
-                tailwindConfig().theme.colors.blue[500],
-                tailwindConfig().theme.colors.indigo[900],
+                tailwindConfig().theme.colors.violet[600],
+                tailwindConfig().theme.colors.sky[600],
+                tailwindConfig().theme.colors.violet[900],
               ],
               borderWidth: 0,
             },
@@ -78,7 +78,7 @@ const dashboardCard06 = () => {
               bodyColor: darkMode ? tooltipBodyColor.dark : tooltipBodyColor.light,
               backgroundColor: darkMode ? tooltipBgColor.dark : tooltipBgColor.light,
               borderColor: darkMode ? tooltipBorderColor.dark : tooltipBorderColor.light,
-            },
+            },             
             htmlLegend: {
               // ID of the container to put the legend in
               containerID: 'dashboard-card-06-legend',
@@ -110,7 +110,7 @@ const dashboardCard06 = () => {
               li.style.margin = tailwindConfig().theme.margin[1];
               // Button element
               const button = document.createElement('button');
-              button.classList.add('btn-xs', 'bg-white', 'dark:bg-slate-800', 'text-slate-500', 'dark:text-slate-400', 'border', 'border-slate-200', 'dark:border-slate-700', 'shadow-md');
+              button.classList.add('btn-xs', 'bg-white', 'dark:bg-gray-700', 'text-gray-500', 'dark:text-gray-400', 'shadow-sm', 'shadow-black/[0.08]', 'rounded-full');
               button.style.opacity = item.hidden ? '.3' : '';
               button.onclick = () => {
                 c.toggleDataVisibility(item.index, !item.index);
@@ -139,7 +139,7 @@ const dashboardCard06 = () => {
           },
         }],
       });
-
+      
       document.addEventListener('darkMode', (e) => {
         const { mode } = e.detail;
         if (mode === 'on') {
@@ -151,10 +151,10 @@ const dashboardCard06 = () => {
           chart.options.plugins.tooltip.titleColor = tooltipTitleColor.light;
           chart.options.plugins.tooltip.bodyColor = tooltipBodyColor.light;
           chart.options.plugins.tooltip.backgroundColor = tooltipBgColor.light;
-          chart.options.plugins.tooltip.borderColor = tooltipBorderColor.light;
+          chart.options.plugins.tooltip.borderColor = tooltipBorderColor.light;  
         }
         chart.update('none');
-      });
+      });      
     });
 };
 
