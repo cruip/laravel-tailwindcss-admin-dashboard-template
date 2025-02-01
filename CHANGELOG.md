@@ -1,5 +1,10 @@
 # CHANGELOG.md
 
+## [4.0.0] - 2025-02-01
+
+- Upgrade to Tailwind 4
+- Update dependencies
+
 ## [3.0.0] - 2024-07-05
 
 - Mosaic Redesign

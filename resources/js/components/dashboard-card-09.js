@@ -23,7 +23,7 @@ const dashboardCard09 = () => {
 
   const gridColor = {
     light: '#F3F4F6',
-    dark: `rgba(${hexToRGB('#374151')}, 0.6)`
+    dark: adjustColorOpacity('#374151', 0.6)
   };
 
   const tooltipBodyColor = {

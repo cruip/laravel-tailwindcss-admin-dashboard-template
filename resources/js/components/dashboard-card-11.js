@@ -71,8 +71,8 @@ const dashboardCard11 = () => {
             {
               label: 'Not satisfied about the quality of the product',
               data: dataset3,
-              backgroundColor: tailwindConfig().theme.colors['sky'][500],
-              hoverBackgroundColor: tailwindConfig().theme.colors['sky'][600],
+              backgroundColor: getCssVariable('--color-sky-500'),
+              hoverBackgroundColor: getCssVariable('--color-sky-600'),
               barPercentage: 1,
               categoryPercentage: 1,
             },
@@ -160,21 +160,21 @@ const dashboardCard11 = () => {
               li.style.display = 'flex'
               li.style.justifyContent = 'space-between'
               li.style.alignItems = 'center'
-              li.style.paddingTop = tailwindConfig().theme.padding[2.5]
-              li.style.paddingBottom = tailwindConfig().theme.padding[2.5]
+              li.style.paddingTop = '10px'
+              li.style.paddingBottom = '10px'
               const wrapper = document.createElement('div')
               wrapper.style.display = 'flex'
               wrapper.style.alignItems = 'center'
               const box = document.createElement('div')
-              box.style.width = tailwindConfig().theme.width[3]
-              box.style.height = tailwindConfig().theme.width[3]
-              box.style.borderRadius = tailwindConfig().theme.borderRadius.sm
-              box.style.marginRight = tailwindConfig().theme.margin[3]
+              box.style.width = '12px'
+              box.style.height = '12px'
+              box.style.borderRadius = '4px'
+              box.style.marginRight = '12px'
               box.style.backgroundColor = item.fillStyle
               const label = document.createElement('div')
               const value = document.createElement('div')
-              value.style.fontWeight = tailwindConfig().theme.fontWeight.medium
-              value.style.marginLeft = tailwindConfig().theme.margin[3]
+              value.style.fontWeight = '500'
+              value.style.marginLeft = '12px'
               value.style.color = item.text === 'Other' ? getCssVariable('--color-gray-400') : item.fillStyle
               const theValue = c.data.datasets[item.datasetIndex].data.reduce((a, b) => a + b, 0)
               const valueText = document.createTextNode(`${parseInt(theValue / max * 100)}%`)
