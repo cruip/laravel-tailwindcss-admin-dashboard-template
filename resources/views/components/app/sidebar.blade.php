@@ -1,7 +1,7 @@
 <div class="min-w-fit">
     <!-- Sidebar backdrop (mobile only) -->
     <div
-        class="fixed inset-0 bg-gray-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200"
+        class="fixed inset-0 bg-gray-900/30 z-40 lg:hidden lg:z-auto transition-opacity duration-200"
         :class="sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'"
         aria-hidden="true"
         x-cloak

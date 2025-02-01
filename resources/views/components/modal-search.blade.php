@@ -15,7 +15,7 @@
     </button>
     <!-- Modal backdrop -->
     <div
-        class="fixed inset-0 bg-gray-900 bg-opacity-30 z-50 transition-opacity"
+        class="fixed inset-0 bg-gray-900/30 z-50 transition-opacity"
         x-show="searchOpen"
         x-transition:enter="transition ease-out duration-200"
         x-transition:enter-start="opacity-0"
