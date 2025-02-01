@@ -34,7 +34,7 @@
         <div class="font-medium text-sm text-gray-600 dark:text-gray-300" x-ref="options">
             <button
                 tabindex="0"
-                class="flex items-center w-full hover:bg-gray-50 hover:dark:bg-gray-700/20 py-1 px-3 cursor-pointer"
+                class="flex items-center w-full hover:bg-gray-50 dark:hover:bg-gray-700/20 py-1 px-3 cursor-pointer"
                 :class="selected === 0 && 'text-violet-500'"
                 @click="selected = 0;open = false"
                 @focus="open = true"
@@ -47,7 +47,7 @@
             </button>
             <button
                 tabindex="0"
-                class="flex items-center w-full hover:bg-gray-50 hover:dark:bg-gray-700/20 py-1 px-3 cursor-pointer"
+                class="flex items-center w-full hover:bg-gray-50 dark:hover:bg-gray-700/20 py-1 px-3 cursor-pointer"
                 :class="selected === 1 && 'text-violet-500'"
                 @click="selected = 1;open = false"
                 @focus="open = true"
@@ -60,7 +60,7 @@
             </button>
             <button
                 tabindex="0"
-                class="flex items-center w-full hover:bg-gray-50 hover:dark:bg-gray-700/20 py-1 px-3 cursor-pointer"
+                class="flex items-center w-full hover:bg-gray-50 dark:hover:bg-gray-700/20 py-1 px-3 cursor-pointer"
                 :class="selected === 2 && 'text-violet-500'"
                 @click="selected = 2;open = false"
                 @focus="open = true"
@@ -73,7 +73,7 @@
             </button>
             <button
                 tabindex="0"
-                class="flex items-center w-full hover:bg-gray-50 hover:dark:bg-gray-700/20 py-1 px-3 cursor-pointer"
+                class="flex items-center w-full hover:bg-gray-50 dark:hover:bg-gray-700/20 py-1 px-3 cursor-pointer"
                 :class="selected === 3 && 'text-violet-500'"
                 @click="selected = 3;open = false"
                 @focus="open = true"
@@ -86,7 +86,7 @@
             </button>
             <button
                 tabindex="0"
-                class="flex items-center w-full hover:bg-gray-50 hover:dark:bg-gray-700/20 py-1 px-3 cursor-pointer"
+                class="flex items-center w-full hover:bg-gray-50 dark:hover:bg-gray-700/20 py-1 px-3 cursor-pointer"
                 :class="selected === 4 && 'text-violet-500'"
                 @click="selected = 4;open = false"
                 @focus="open = true"

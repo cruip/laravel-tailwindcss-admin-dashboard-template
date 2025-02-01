@@ -8,7 +8,7 @@
                 </svg>
             </span>
         </div>
-        <ul class="inline-flex text-sm font-medium -space-x-px rounded-lg shadow-sm">
+        <ul class="inline-flex text-sm font-medium -space-x-px rounded-lg shadow-xs">
             <li>
                 <span class="inline-flex items-center justify-center rounded-l-lg leading-5 px-3.5 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700/60 text-violet-500">1</span>
             </li>
@@ -26,7 +26,7 @@
             </li>
         </ul>
         <div class="ml-2">
-            <a href="#0" class="inline-flex items-center justify-center rounded-lg leading-5 px-2.5 py-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 border border-gray-200 dark:border-gray-700/60 text-violet-500 shadow-sm">
+            <a href="#0" class="inline-flex items-center justify-center rounded-lg leading-5 px-2.5 py-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 border border-gray-200 dark:border-gray-700/60 text-violet-500 shadow-xs">
                 <span class="sr-only">Next</span><wbr />
                 <svg class="fill-current" width="16" height="16" viewBox="0 0 16 16">
                     <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z" />

@@ -6,7 +6,7 @@ import 'chartjs-adapter-moment';
 import { chartAreaGradient } from '../app';
 
 // Import utilities
-import { tailwindConfig, formatValue, hexToRGB } from '../utils';
+import { formatValue, getCssVariable, adjustColorOpacity } from '../utils';
 
 Chart.register(LineController, LineElement, Filler, PointElement, LinearScale, TimeScale, Tooltip);
 
@@ -84,16 +84,16 @@ const dashboardCard05 = () => {
                 const chart = context.chart;
                 const {ctx, chartArea} = chart;
                 return chartAreaGradient(ctx, chartArea, [
-                  { stop: 0, color: `rgba(${hexToRGB(tailwindConfig().theme.colors.violet[500])}, 0)` },
-                  { stop: 1, color: `rgba(${hexToRGB(tailwindConfig().theme.colors.violet[500])}, 0.2)` }
+                  { stop: 0, color: adjustColorOpacity(getCssVariable('--color-violet-500'), 0) },
+                  { stop: 1, color: adjustColorOpacity(getCssVariable('--color-violet-500'), 0.2) }
                 ]);
               },
-              borderColor: tailwindConfig().theme.colors.violet[500],
+              borderColor: getCssVariable('--color-violet-500'),
               borderWidth: 2,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: tailwindConfig().theme.colors.violet[500],
-              pointHoverBackgroundColor: tailwindConfig().theme.colors.violet[500],
+              pointBackgroundColor: getCssVariable('--color-violet-500'),
+              pointHoverBackgroundColor: getCssVariable('--color-violet-500'),
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,
               clip: 20,
@@ -187,11 +187,11 @@ const dashboardCard05 = () => {
         chartValue.innerHTML = value;
         if (!chartDeviation) return;
         if (diff < 0) {
-          chartDeviation.style.backgroundColor = `rgba(${hexToRGB(tailwindConfig().theme.colors.red[500])}, 0.2)`;
-          chartDeviation.style.color = tailwindConfig().theme.colors.red[700];
+          chartDeviation.style.backgroundColor = adjustColorOpacity(getCssVariable('--color-red-500'), 0.2);
+          chartDeviation.style.color = getCssVariable('--color-red-700');
         } else {
-          chartDeviation.style.backgroundColor = `rgba(${hexToRGB(tailwindConfig().theme.colors.green[500])}, 0.2)`;
-          chartDeviation.style.color = tailwindConfig().theme.colors.green[700];
+          chartDeviation.style.backgroundColor = adjustColorOpacity(getCssVariable('--color-green-500'), 0.2);
+          chartDeviation.style.color = getCssVariable('--color-green-700');
         }        
         chartDeviation.innerHTML = `${diff > 0 ? '+' : ''}${diff.toFixed(2)}%`;
       };

@@ -4,7 +4,7 @@ import {
 } from 'chart.js';
 
 // Import utilities
-import { tailwindConfig } from '../utils';
+import { getCssVariable } from '../utils';
 
 Chart.register(BarController, BarElement, LinearScale, CategoryScale, Tooltip, Legend);
 
@@ -55,16 +55,16 @@ const dashboardCard11 = () => {
             {
               label: 'Having difficulties using the product',
               data: dataset1,
-              backgroundColor: tailwindConfig().theme.colors.violet[500],
-              hoverBackgroundColor: tailwindConfig().theme.colors.violet[600],
+              backgroundColor: getCssVariable('--color-violet-500'),
+              hoverBackgroundColor: getCssVariable('--color-violet-600'),
               barPercentage: 1,
               categoryPercentage: 1,
             },
             {
               label: 'Missing features I need',
               data: dataset2,
-              backgroundColor: tailwindConfig().theme.colors.violet[700],
-              hoverBackgroundColor: tailwindConfig().theme.colors.violet[800],
+              backgroundColor: getCssVariable('--color-violet-700'),
+              hoverBackgroundColor: getCssVariable('--color-violet-800'),
               barPercentage: 1,
               categoryPercentage: 1,
             },
@@ -79,16 +79,16 @@ const dashboardCard11 = () => {
             {
               label: 'The product doesn’t look as advertised',
               data: dataset4,
-              backgroundColor: tailwindConfig().theme.colors.green[500],
-              hoverBackgroundColor: tailwindConfig().theme.colors.green[600],
+              backgroundColor: getCssVariable('--color-green-500'),
+              hoverBackgroundColor: getCssVariable('--color-green-600'),
               barPercentage: 1,
               categoryPercentage: 1,
             },
             {
               label: 'Other',
               data: dataset5,
-              backgroundColor: tailwindConfig().theme.colors.gray[200],
-              hoverBackgroundColor: tailwindConfig().theme.colors.gray[300],
+              backgroundColor: getCssVariable('--color-gray-200'),
+              hoverBackgroundColor: getCssVariable('--color-gray-300'),
               barPercentage: 1,
               categoryPercentage: 1,
             },            
@@ -175,7 +175,7 @@ const dashboardCard11 = () => {
               const value = document.createElement('div')
               value.style.fontWeight = tailwindConfig().theme.fontWeight.medium
               value.style.marginLeft = tailwindConfig().theme.margin[3]
-              value.style.color = item.text === 'Other' ? tailwindConfig().theme.colors.gray[400] : item.fillStyle
+              value.style.color = item.text === 'Other' ? getCssVariable('--color-gray-400') : item.fillStyle
               const theValue = c.data.datasets[item.datasetIndex].data.reduce((a, b) => a + b, 0)
               const valueText = document.createTextNode(`${parseInt(theValue / max * 100)}%`)
               const labelText = document.createTextNode(item.text)

@@ -4,7 +4,7 @@ import {
 } from 'chart.js';
 
 // Import utilities
-import { tailwindConfig, formatValue, hexToRGB } from '../utils';
+import { formatValue, getCssVariable, adjustColorOpacity } from '../utils';
 
 Chart.register(LineController, LineElement, Filler, PointElement, LinearScale, TimeScale, Tooltip);
 
@@ -71,13 +71,13 @@ const dashboardCard08 = () => {
             {
               label: 'Current',
               data: dataset1,
-              borderColor: tailwindConfig().theme.colors.violet[500],
+              borderColor: getCssVariable('--color-violet-500'),
               fill: false,
               borderWidth: 2,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: tailwindConfig().theme.colors.violet[500],
-              pointHoverBackgroundColor: tailwindConfig().theme.colors.violet[500],
+              pointBackgroundColor: getCssVariable('--color-violet-500'),
+              pointHoverBackgroundColor: getCssVariable('--color-violet-500'),
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,
               clip: 20,
@@ -87,13 +87,13 @@ const dashboardCard08 = () => {
             {
               label: 'Previous',
               data: dataset2,
-              borderColor: tailwindConfig().theme.colors.sky[500],
+              borderColor: getCssVariable('--color-sky-500'),
               fill: false,
               borderWidth: 2,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: tailwindConfig().theme.colors.sky[500],
-              pointHoverBackgroundColor: tailwindConfig().theme.colors.sky[500],
+              pointBackgroundColor: getCssVariable('--color-sky-500'),
+              pointHoverBackgroundColor: getCssVariable('--color-sky-500'),
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,              
               clip: 20,
@@ -103,13 +103,13 @@ const dashboardCard08 = () => {
             {
               label: 'Average',
               data: dataset3,
-              borderColor: tailwindConfig().theme.colors.green[500],
+              borderColor: getCssVariable('--color-green-500'),
               fill: false,
               borderWidth: 2,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: tailwindConfig().theme.colors.green[500],
-              pointHoverBackgroundColor: tailwindConfig().theme.colors.green[500],
+              pointBackgroundColor: getCssVariable('--color-green-500'),
+              pointHoverBackgroundColor: getCssVariable('--color-green-500'),
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,              
               clip: 20,

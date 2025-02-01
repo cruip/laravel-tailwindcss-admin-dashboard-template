@@ -4,7 +4,7 @@ import {
 } from 'chart.js';
 
 // Import utilities
-import { tailwindConfig, formatValue, hexToRGB } from '../utils';
+import { formatValue, getCssVariable, adjustColorOpacity } from '../utils';
 
 Chart.register(BarController, BarElement, LinearScale, TimeScale, Tooltip, Legend);
 
@@ -62,8 +62,8 @@ const dashboardCard04 = () => {
               // data: [
               //     800, 1600, 900, 1300, 1950, 1700,
               // ],
-              backgroundColor: tailwindConfig().theme.colors.sky[500],
-              hoverBackgroundColor: tailwindConfig().theme.colors.sky[600],
+              backgroundColor: getCssVariable('--color-sky-500'),
+              hoverBackgroundColor: getCssVariable('--color-sky-600'),
               barPercentage: 0.7,
               categoryPercentage: 0.7,
               borderRadius: 4,
@@ -75,8 +75,8 @@ const dashboardCard04 = () => {
               // data: [
               //     4900, 2600, 5350, 4800, 5200, 4800,
               // ],
-              backgroundColor: tailwindConfig().theme.colors.violet[500],
-              hoverBackgroundColor: tailwindConfig().theme.colors.violet[600],
+              backgroundColor: getCssVariable('--color-violet-500'),
+              hoverBackgroundColor: getCssVariable('--color-violet-600'),
               barPercentage: 0.7,
               categoryPercentage: 0.7,
               borderRadius: 4,

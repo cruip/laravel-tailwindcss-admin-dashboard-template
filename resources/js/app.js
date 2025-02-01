@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.checked = checked;
           }
         });
-        document.documentElement.classList.add('[&_*]:!transition-none');
+        document.documentElement.classList.add('**:transition-none!');
         if (lightSwitch.checked) {
           document.documentElement.classList.add('dark');
           document.querySelector('html').style.colorScheme = 'dark';
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
           document.dispatchEvent(new CustomEvent('darkMode', { detail: { mode: 'off' } }));
         }
         setTimeout(() => {
-          document.documentElement.classList.remove('[&_*]:!transition-none');
+          document.documentElement.classList.remove('**:transition-none!');
         }, 1);
       });
     });

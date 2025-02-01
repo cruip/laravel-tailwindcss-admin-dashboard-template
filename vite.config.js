@@ -1,4 +1,3 @@
-import path from 'path'
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
@@ -11,15 +10,5 @@ export default defineConfig({
       ],
       refresh: true,
     }),
-  ],
-  resolve: {
-    alias: {
-      '@tailwindConfig': path.resolve(__dirname, 'tailwind.config.js'),
-    },
-  },
-  optimizeDeps: {
-    include: [
-      '@tailwindConfig',
-    ]
-  },   
+  ],  
 });

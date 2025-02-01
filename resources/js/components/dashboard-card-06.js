@@ -5,7 +5,7 @@ import {
 import 'chartjs-adapter-moment';
 
 // Import utilities
-import { tailwindConfig } from '../utils';
+import { getCssVariable } from '../utils';
 
 Chart.register(DoughnutController, ArcElement, TimeScale, Tooltip);
 
@@ -51,14 +51,14 @@ const dashboardCard06 = () => {
               label: 'Top Countries',
               data: result.data,
               backgroundColor: [
-                tailwindConfig().theme.colors.violet[500],
-                tailwindConfig().theme.colors.sky[500],
-                tailwindConfig().theme.colors.violet[800],
+                getCssVariable('--color-violet-500'),
+                getCssVariable('--color-sky-500'),
+                getCssVariable('--color-violet-800'),
               ],
               hoverBackgroundColor: [
-                tailwindConfig().theme.colors.violet[600],
-                tailwindConfig().theme.colors.sky[600],
-                tailwindConfig().theme.colors.violet[900],
+                getCssVariable('--color-violet-600'),
+                getCssVariable('--color-sky-600'),
+                getCssVariable('--color-violet-900'),
               ],
               borderWidth: 0,
             },
@@ -110,7 +110,7 @@ const dashboardCard06 = () => {
               li.style.margin = tailwindConfig().theme.margin[1];
               // Button element
               const button = document.createElement('button');
-              button.classList.add('btn-xs', 'bg-white', 'dark:bg-gray-700', 'text-gray-500', 'dark:text-gray-400', 'shadow-sm', 'shadow-black/[0.08]', 'rounded-full');
+              button.classList.add('btn-xs', 'bg-white', 'dark:bg-gray-700', 'text-gray-500', 'dark:text-gray-400', 'shadow-xs', 'shadow-black/[0.08]', 'rounded-full');
               button.style.opacity = item.hidden ? '.3' : '';
               button.onclick = () => {
                 c.toggleDataVisibility(item.index, !item.index);
