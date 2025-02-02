@@ -8,7 +8,7 @@
         <div class="overflow-x-auto">
             <table class="table-auto w-full">
                 <!-- Table header -->
-                <thead class="text-xs font-semibold uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700 dark:bg-opacity-50">
+                <thead class="text-xs font-semibold uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700/50">
                     <tr>
                         <th class="p-2 whitespace-nowrap">
                             <div class="font-semibold text-left">Name</div>

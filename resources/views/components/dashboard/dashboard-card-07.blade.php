@@ -8,7 +8,7 @@
         <div class="overflow-x-auto">
             <table class="table-auto w-full dark:text-gray-300">
                 <!-- Table header -->
-                <thead class="text-xs uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700 dark:bg-opacity-50 rounded-xs">
+                <thead class="text-xs uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700/50 rounded-xs">
                     <tr>
                         <th class="p-2">
                             <div class="font-semibold text-left">Source</div>

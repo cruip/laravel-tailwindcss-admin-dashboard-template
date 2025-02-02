@@ -7,7 +7,7 @@
         <!-- Card content -->
         <!-- "Today" group -->
         <div>
-            <header class="text-xs uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700 dark:bg-opacity-50 rounded-xs font-semibold p-2">Today</header>
+            <header class="text-xs uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700/50 rounded-xs font-semibold p-2">Today</header>
             <ul class="my-1">
                 <!-- Item -->
                 <li class="flex px-2">
@@ -61,7 +61,7 @@
         </div>
         <!-- "Yesterday" group -->
         <div>
-            <header class="text-xs uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700 dark:bg-opacity-50 rounded-xs font-semibold p-2">Yesterday</header>
+            <header class="text-xs uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700/50 rounded-xs font-semibold p-2">Yesterday</header>
             <ul class="my-1">
                 <!-- Item -->
                 <li class="flex px-2">
